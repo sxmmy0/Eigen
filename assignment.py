@@ -97,4 +97,23 @@ def count_word_frequency(tokens: list):
 
 # Test the count_word_frequency function
 word_frequency = count_word_frequency(tokens)
-print(word_frequency)
+# print(word_frequency)
+
+# Step 5: Identify interesting words based on frequency
+def identify_interesting_words(word_frequency: dict, threshold: int = 2):
+    """
+    Identify interesting words based on their frequency.
+    
+    Args:
+        word_frequency (dict): A dictionary of word frequencies.
+        threshold (int): The frequency threshold for interesting words.
+        
+    Returns:
+        list: A list of interesting words.
+    """
+    interesting_words = [word for word, freq in word_frequency.items() if freq >= threshold]
+    return interesting_words
+
+# Test the identify_interesting_words function
+interesting_words = identify_interesting_words(word_frequency)
+# print(interesting_words)
