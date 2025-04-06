@@ -1,5 +1,10 @@
-f = open("doc1.txt", "r")
+# short demo to see if the code works
+import string
 
-for x in f:
-    print(x)
-    
+file = open('doc6.txt', 'r',)
+read = file.readlines()
+modified = []
+
+for line in read:
+    modified.append(line.strip())
+print(modified)
