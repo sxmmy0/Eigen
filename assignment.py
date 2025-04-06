@@ -56,4 +56,45 @@ def process_text(text: str):
 processed_text = process_text(text_files['doc6.txt']) # Replace with each document name
 
 # Print the processed text
-print(processed_text)
+# print(processed_text)
+
+# Step 3: Tokenize the text into words
+def tokenize_text(text: str):
+    """
+    Tokenize the text into words.
+    
+    Args:
+        text (str): The cleaned text.
+        
+    Returns:
+        list: A list of tokens (words).
+    """
+    tokens = text.split()
+    return tokens
+
+# Test the tokenize_text function
+tokens = tokenize_text(processed_text)
+# print(tokens)
+
+# Step 4: Count the frequency of each word
+def count_word_frequency(tokens: list):
+    """
+    Count the frequency of each word in the tokenized text.
+    
+    Args:
+        tokens (list): A list of tokens (words).
+        
+    Returns:
+        dict: A dictionary where keys are words and values are their frequencies.
+    """
+    word_frequency = {}
+    for word in tokens:
+        if word in word_frequency:
+            word_frequency[word] += 1
+        else:
+            word_frequency[word] = 1
+    return word_frequency
+
+# Test the count_word_frequency function
+word_frequency = count_word_frequency(tokens)
+print(word_frequency)
