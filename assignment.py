@@ -8,6 +8,14 @@ import string
 
 import pandas as pd
 
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
+nltk.download('punkt')
+nltk.download('stopwords')
+
+
 # Step 1: Load the text files
 def load_text_files(directory: str):
     """
@@ -31,16 +39,16 @@ def load_text_files(directory: str):
 # text_files = load_text_files(directory)
  # print(text_files)
 
-# Step 2: Process the text to remove punctuation
+# Step 2: Process the text to remove punctuation and stopwords
 def process_text(text: str):
     """
-    Remove punctuation from the text and return the cleaned text.
+    Remove punctuation, stopwords, and return the cleaned text.
     
     Args:
         text (str): The original text.
         
     Returns:
-        str: The cleaned text without punctuation.
+        str: The cleaned text without punctuation and stopwords.
     """
     # Remove '\n' and escape characters
     text = text.replace('\n', ' ').replace('\\', '').replace('\'', '')
@@ -52,7 +60,14 @@ def process_text(text: str):
     text = text.lower()
     text = ''.join([char for char in text if char not in string.punctuation])
 
-    return text
+    # Tokenize the text
+    tokens = word_tokenize(text)
+
+    # Remove stopwords
+    stop_words = set(stopwords.words('english'))
+    filtered_tokens = [word for word in tokens if word not in stop_words]
+
+    return filtered_tokens
 
 # Test the process_text function
 # processed_text = process_text(text_files['doc6.txt'])
@@ -78,7 +93,7 @@ def tokenize_text(text: str):
 # tokens = tokenize_text(processed_text)
 # print(tokens)
 
-# Step 4: Count the frequency of each word in a document
+# Step 3: Count the frequency of each word in a document
 def count_word_frequency(tokens: list):
     """
     Count the frequency of each word in the tokenized text.
@@ -120,7 +135,7 @@ def count_word_frequency(tokens: list):
 # interesting_words = identify_interesting_words(word_frequency)
 # print(interesting_words)
 
-# Step 5: Create a summary table for all documents
+# Step 4: Create a summary table for all documents
 def create_summary_table(all_word_frequencies: dict):
     """
     Create a summary table of word frequencies across all documents.
@@ -150,22 +165,22 @@ def create_summary_table(all_word_frequencies: dict):
 directory = "/Users/sxmmy/Documents/Projects/Eigen/Eigen"  # Replace with your directory path
 text_files = load_text_files(directory)
 
-# Step 7: Process each file and calculate word frequencies
+# Step 5: Process each file and calculate word frequencies
+# Process each file and calculate word frequencies
 all_word_frequencies = {}
 for filename, content in text_files.items():
-    processed_text = process_text(content)
-    tokens = tokenize_text(processed_text)
-    word_frequency = count_word_frequency(tokens)
+    filtered_tokens = process_text(content)
+    word_frequency = count_word_frequency(filtered_tokens)
     all_word_frequencies[filename] = word_frequency
 
-# Step 8: Create the summary table
+# Step 6: Create the summary table
 summary_table = create_summary_table(all_word_frequencies)
 
-# Step 9: Save the summary table to a CSV file
-summary_table.to_csv('word_frequencies.csv', index=False)
+# Step 7: Save the summary table to a CSV file
+summary_table.to_csv('interesting_words.csv', index=False)
 print("Summary table saved to 'word_frequencies.csv'")
 
-# # Step 7: Save the summary table to a CSV file
+# # Step: Save the summary table to a CSV file
 # def save_summary_table(summary_table: pd.DataFrame, filename: str):
 #     """
 #     Save the summary table to a CSV file.
