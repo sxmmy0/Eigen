@@ -6,6 +6,8 @@ import nltk
 import os
 import string
 
+import pandas as pd
+
 # Step 1: Load the text files
 def load_text_files(directory: str):
     """
@@ -117,3 +119,44 @@ def identify_interesting_words(word_frequency: dict, threshold: int = 2):
 # Test the identify_interesting_words function
 interesting_words = identify_interesting_words(word_frequency)
 # print(interesting_words)
+
+# Step 6: Create a summary table of interesting words
+def create_summary_table(word_frequency: dict, interesting_words: list):
+    """
+    Create a summary table of interesting words and their frequencies.
+    
+    Args:
+        word_frequency (dict): A dictionary of word frequencies.
+        interesting_words (list): A list of interesting words.
+        
+    Returns:
+        pd.DataFrame: A DataFrame containing the summary table.
+    """
+    summary_data = {
+        'Word': [],
+        'Frequency': []
+    }
+    
+    for word in interesting_words:
+        summary_data['Word'].append(word)
+        summary_data['Frequency'].append(word_frequency[word])
+    
+    return pd.DataFrame(summary_data)
+
+# Test the create_summary_table function
+summary_table = create_summary_table(word_frequency, interesting_words)
+# print(summary_table)
+
+# Step 7: Save the summary table to a CSV file
+def save_summary_table(summary_table: pd.DataFrame, filename: str):
+    """
+    Save the summary table to a CSV file.
+    
+    Args:
+        summary_table (pd.DataFrame): The DataFrame containing the summary table.
+        filename (str): The name of the CSV file to save.
+    """
+    summary_table.to_csv(filename, index=False)
+
+# Test the save_summary_table function
+save_summary_table(summary_table, 'summary_table.csv')
