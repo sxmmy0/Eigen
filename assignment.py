@@ -8,10 +8,28 @@ import string
 
 import pandas as pd
 
-import nltk
+# import nltk
+# nltk.download('popular')
+# nltk.download('punkt')
+# nltk.download('punkt_tab')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+# nltk.download('stopwords')
+# nltk.download('averaged_perceptron_tagger')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+import ssl
+import nltk
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+# Download the required NLTK resources
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -61,7 +79,7 @@ def process_text(text: str):
     text = ''.join([char for char in text if char not in string.punctuation])
 
     # Tokenize the text
-    tokens = word_tokenize(text)
+    tokens = word_tokenize(text, language='english', preserve_line=True)
 
     # Remove stopwords
     stop_words = set(stopwords.words('english'))
