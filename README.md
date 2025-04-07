@@ -11,18 +11,20 @@ In this task there were several outcomes:
 • TD_IDF.py - 
 
 ### Installation Instructions
-### Step 1. Clone My Repository
+### Step 1. Clone My Repository:
 ` git clone [https://github.com/](https://github.com/sxmmy0/CrepHaus) `
-### Step 2. Ensure you directory path is configured
+### Step 2. Ensure you directory path is configured:
 ` directory = "/<your-directory-path>/"  # Replace with your directory path `
-### Step 3. Ensure nltk and pandas is installed
+### Step 3. Ensure nltk and pandas is installed:
 ` pip install nltk pandas `
 ### Step 4. Run python file which creates a csv file
 
-### Troubleshooting
-• One issue was an nltk iss where the out was not recognising `import nltk nltk.download('stopwords') `.
+### Troubleshooting:
+• One issue was an nltk iss where the out was not recognising 
+`import nltk nltk.download('stopwords') `
+### Troubleshooting Fix:
 • I fixed this by adding this script:
-`
+```
 import ssl
 import nltk
 
@@ -33,8 +35,7 @@ except AttributeError:
 else:
     ssl._create_default_https_context = _create_unverified_https_context
 
-- Download the required NLTK resources:
-  nltk.download('punkt')
-  nltk.download('stopwords')
-
-`
+Download the required NLTK resources: 
+nltk.download('punkt')
+nltk.download('stopwords')
+```
