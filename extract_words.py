@@ -196,7 +196,7 @@ summary_table = create_summary_table(all_word_frequencies)
 
 # Step 7: Save the summary table to a CSV file
 summary_table.to_csv('interesting_words.csv', index=False)
-print("Summary table saved to 'word_frequencies.csv'")
+print("Summary table saved to 'interesting_words.csv'")
 
 # # Step: Save the summary table to a CSV file
 # def save_summary_table(summary_table: pd.DataFrame, filename: str):
