@@ -55,7 +55,7 @@ def load_text_files(directory: str):
 # Test the load_text_files function
 # directory = "/Users/sxmmy/Documents/Projects/Eigen/Eigen" # Replace with your directory path
 # text_files = load_text_files(directory)
- # print(text_files)
+# print(text_files)
 
 # Step 2: Process the text to remove punctuation and stopwords
 def process_text(text: str):
