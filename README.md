@@ -6,9 +6,9 @@ At Sirion Eigen, the compant spend a lot of time getting useful information out 
 
 ### Task Outcomes
 In this task there were several outcomes:
-• extract_words.py - Common words like 'the', 'and', 'is' etc where removed. The frequency of the words in each document were then accounted for.
-• extract_sentences.py - Sentences in each document are ranked by a scoring system of most important sentence.
-• TD_IDF.py - 
+- extract_words.py -> Common words like 'the', 'and', 'is' etc where removed. The frequency of the words in each document were then accounted for.
+- extract_sentences.py -> Sentences in each document are ranked by a scoring system of most important sentence.
+- TD_IDF.py -> creating file...tbc
 
 ### Installation Instructions
 ### Step 1. Clone My Repository:
