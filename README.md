@@ -12,7 +12,7 @@ In this task there were several outcomes:
 
 ### Installation Instructions
 ### Step 1. Clone My Repository:
-` git clone [https://github.com/](https://github.com/sxmmy0/CrepHaus) `
+` git clone (https://github.com/sxmmy0/Eigen.git) `
 ### Step 2. Ensure you directory path is configured:
 ` directory = "/<your-directory-path>/"  # Replace with your directory path `
 ### Step 3. Ensure nltk and pandas is installed:
