@@ -39,3 +39,4 @@ Download the required NLTK resources:
 nltk.download('punkt')
 nltk.download('stopwords')
 ```
+This helps to install all the necesssary nltk files and override the ssl error
