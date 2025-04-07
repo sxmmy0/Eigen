@@ -13,11 +13,17 @@ In this task there were several outcomes:
 ### Installation Instructions
 ### Step 1. Clone My Repository:
 ` git clone (https://github.com/sxmmy0/Eigen.git) `
+
 ### Step 2. Ensure you directory path is configured:
+- In the python script (cmd + f) or (ctrl + f) to find the directory script and replace with your directory path.
+  
 ` directory = "/<your-directory-path>/"  # Replace with your directory path `
+
 ### Step 3. Ensure nltk and pandas is installed:
 ` pip install nltk pandas `
-### Step 4. Run python file which creates a csv file
+
+### Step 4. Run python file your IDE which creates a csv file
+`python extract_words` 
 
 ### Troubleshooting:
 • One issue was an nltk iss where the out was not recognising 
